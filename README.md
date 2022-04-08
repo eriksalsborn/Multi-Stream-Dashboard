@@ -15,4 +15,4 @@ Allow users to register an account and login. The user will then get a screen wh
 
 ### Technological
 
-We intend to use React for the frontend framework. We also intend to use NodeJS, expressJS, cryptoJS, bcryptJS. We will create a serverless setup using AWS lambda with its RESTful web API that uses DynamoDB to manage state. The user information will be stored in a MongoDB database.
+We intend to use React for the frontend framework. We also intend to use NodeJS, bcryptJS, jasonwebtoken. We will create a serverless setup using AWS lambda with its RESTful web API that uses DynamoDB to manage state. The user information will be stored in a DYnamoDB database. We will also use a s3 bucket to host our website. 
