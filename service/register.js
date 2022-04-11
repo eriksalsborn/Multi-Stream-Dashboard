@@ -57,7 +57,7 @@ async function getUser(username) {
     .promise()
     .then(
       (response) => {
-        return response.item;
+        return response.Item;
       },
       (error) => {
         console.error("There is an error getting user: ", error);
