@@ -12,6 +12,9 @@ exports.handler = async (event) => {
   console.log("Request Event: ", event);
   let response;
   switch (true) {
+    case event.httpMethod === "OPTIONS":
+      response = util.buildCORSResponse(200, "Success");
+      break;
     case event.httpMethod === "GET" && event.path === healthPath:
       response = util.buildResponse(200);
       break;
