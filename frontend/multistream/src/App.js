@@ -5,6 +5,8 @@ import Home from './Home';
 import Login from './Login';
 import Register from './Register';
 import Layouts from './Layouts';
+import PrivateRoute from './routes/PrivateRoute';
+import PublicRoute from './routes/PublicRoute';
 
 function App() {
   return (
@@ -22,9 +24,9 @@ function App() {
     <div className="content">
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/layouts' element={<Layouts/>}/>
+        <PublicRoute path='/register' element={<Register/>}/>
+        <PublicRoute path='/login' element={<Login/>}/>
+        <PrivateRoute path='/layouts' element={<Layouts/>}/>
       </Routes>
     </div>
 
