@@ -28,11 +28,55 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+input[type=submit] {
+  margin-top: 20px;
+  background: #248b0c;
+  color: white;
+  border-style: outset;
+  border-color: #278213;
+  border-radius: 4px;
+  height: 30px;
+  width: 100px;
+  font: bold15px arial,sans-serif;
+  text-shadow: none;
+  cursor: pointer;
+  }
+
+input[type=submit]:hover {
+  background-color: #1b6809;
+  color: white;
+}
+
+input[type=button] {
+  margin-top: 20px;
+  background: #878b85;
+  color: white;
+  border-style: outset;
+  border-color: #a49d9d;
+  border-radius: 4px;
+  height: 30px;
+  width: 100px;
+  font: bold15px arial,sans-serif;
+  text-shadow: none;
+  cursor: pointer;
+  }
+
+input[type=button]:hover {
+  background-color: #363736;
+  color: white;
+}
+
+  

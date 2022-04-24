@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthService, { setUserSession } from "./AuthService";
+import { setUserSession } from "./AuthService";
 import axios from "axios";
 
 const loginUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/login";
@@ -53,12 +53,25 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div class="center">
             <form onSubmit={submitHandler}>
                 <h5>Login</h5>
-                Username: <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
-                Password: <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
-                <input type="submit" value="Login" />
+
+                <div class="form">
+                    <div>
+                        Username: <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
+                    </div>
+
+                    <div>
+                        Password: <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
+                    </div>
+
+                </div>
+
+                <div>
+                    <input type="submit" value="Login" id="submit-button" />
+                </div>
+                
             </form>
             {message && <p className="message">{message} </p>}
     </div>

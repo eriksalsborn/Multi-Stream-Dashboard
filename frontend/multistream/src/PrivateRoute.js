@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link, useNavigate, useLocation, Navigate, Outlet, } from 'react-router-dom';
+import { useLocation, Navigate, Outlet, } from 'react-router-dom';
 import { getToken } from "./AuthService";
 
 const PrivateRoute = () => {
