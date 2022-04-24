@@ -1,12 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import Home from './Home';
 import Login from './Login';
 import Register from './Register';
 import Layouts from './Layouts';
-import PrivateRoute from './routes/PrivateRoute';
-import PublicRoute from './routes/PublicRoute';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -22,11 +20,16 @@ function App() {
       </div>
 
     <div className="content">
-      <Routes>
+      <Routes>  
         <Route path='/' element={<Home/>}/>
-        <PublicRoute path='/register' element={<Register/>}/>
-        <PublicRoute path='/login' element={<Login/>}/>
-        <PrivateRoute path='/layouts' element={<Layouts/>}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route element={<PrivateRoute />}>
+          <Route path="/layouts" element={<Layouts />} /> 
+           {/* add here if you want multiple privates */}
+        </Route>
+
       </Routes>
     </div>
 
