@@ -41,10 +41,15 @@ async function savelayouts(requestBody) {
 async function saveUser(user) {
   const params = {
     TableName: userTable,
-    Item: user,
+    Key: { username: user.username },
+    UpdateExpression: "SET urlTest = list_append(if_not_exists(urlTest, :empty_list), :my_value)",
+    ExpressionAttributeNames: {
+      "#attrName": "urlTest",
+    },
+    ExpressionAttributeValues: { ":my_value": "test", ":empty_list": "" },
   };
   return await dynamoDB
-    .put(params)
+    .update(params)
     .promise()
     .then(
       (response) => {
