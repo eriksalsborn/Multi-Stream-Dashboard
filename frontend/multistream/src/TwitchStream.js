@@ -7,8 +7,8 @@ const TwitchStream = ({data, onDrag, onClose}) => {
 
         <Rnd
         //size={{ width: data.x,  height: data.x }}
-        //position={{ x: data.x, y: data.y }}
-        //onDragStop={(e, d) => { onDrag(data, d.x, d.y) }}
+        position={{ x: data.x, y: data.y }}
+        onDragStop={(e, d) => { onDrag(data, d.x, d.y) }}
         // onResizeStop={(e, direction, ref, delta, position) => {
         //     this.setState({
         //     width: ref.style.width,

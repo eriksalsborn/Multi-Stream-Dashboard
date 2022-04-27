@@ -1,5 +1,4 @@
 // Contains functions for user information and token
-
 module.exports = {
 
     getUser: function() {
