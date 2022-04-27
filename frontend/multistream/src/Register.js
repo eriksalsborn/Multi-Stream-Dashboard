@@ -8,9 +8,6 @@ const registerUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/pro
 // This component should act as a way for the user to use Forms to register an account
 const Register = () => {
 
-  // removing any previous messages
-  setMessage(null);
-
   // declaring new state variables 
   const [name, setName] = useState(""); 
   const [email, setEmail] = useState(""); 
@@ -45,7 +42,7 @@ const Register = () => {
       password: password,
     }
 
-    // we are using axios to send asynchronous HTTP requests to REST endpoints
+    // using axios to send asynchronous HTTP requests to REST endpoints
     axios
       .post(registerUrl, requestBody, requestConfig)
       .then((response) => {
@@ -64,7 +61,7 @@ const Register = () => {
     <div class="center">
 
       <form onSubmit={submitHandler}>
-        
+
         <h5>Register</h5>
 
         <div class="form">

@@ -4,50 +4,59 @@ import { getUser, resetUserSession } from "./AuthService";
 import axios from "axios";
 import TwitchStream from "./TwitchStream"
 
+// allows us to access the api
 const layoutsUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/savelayouts";
 
 const Layouts = () => {
 
-  const user = getUser();
-  const name = user !== "undefined" && user ? user.name : "" && user ? user.username : "";
-  const navigate = useNavigate();
+  // get the current user + name
+  const user = getUser()
+  const name = user.name
 
-  const [twitchWindows, setTwitchWindows] = useState([]);
+  // declaring new state variables
+  const [twitchWindows, setTwitchWindows] = useState([])
   const [inputText, setInputText] = useState("")
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState(null)
   const [appInitiated, setAppInitiated] = useState(false)
   
+  // hook that runs after each render / state variables updated
   useEffect(() => {
+
+    // If this isnt our first time doing stuff 
     if (appInitiated) {
-        // post axios twitchWindows
+    
+    // required for call to server
     const requestConfig = {
       headers: {
         "x-api-key": "1fJBeucWw45uBdz97bK4t3iio2gHgdjIaR3d9Lmy",
       },
-    };
+    }
+
+    // what we want to send (post) to the server lambda function
     const requestBody = {
       username: user.username,
       url: inputText,
-    };
+    }
 
-    //alert('sent req')
-
+    // server call 
     axios
       .post(layoutsUrl, {twitchWindows: twitchWindows, username: user.username}, requestConfig)
       .then((response) => {
-        setMessage("Layouts Saved Successfully");
+        setMessage("Layouts Saved Successfully")
       })
       .catch((error) => {
         if (error.response.status === 401 || error.response.status === 403) {
-          setMessage(error.response.data.message);
+          setMessage(error.response.data.message)
         } else {
-          setMessage("Sorry... The backend server is down. Please try again later.");
+          setMessage("Sorry... The backend server is down. Please try again later.")
         }
       });
- 
+      
+      // if we are just navigating to layouts from another component we want to
+      // retrieve the states in the database for the user
     } else {
-      // fetch data
 
+      // fetch data
       const requestConfig = {
         headers: {
           "x-api-key": "1fJBeucWw45uBdz97bK4t3iio2gHgdjIaR3d9Lmy",
@@ -77,7 +86,10 @@ const Layouts = () => {
     }
   }, [twitchWindows])
 
+  // hook returns a function 
+  let navigate = useNavigate()
   const logoutHandler = () => {
+    
     resetUserSession();
     navigate("/login");
   };
@@ -112,6 +124,12 @@ const Layouts = () => {
 
   const handleDrag = (toDrag, dx, dy) => {
     // update current state...
+
+    // toDrag.x = dx
+    // toDrag.y = dy
+    // setTwitchWindows(twitchWindows(toDrag))
+
+    console.log('Dragged... ')
   }
 
   return (
