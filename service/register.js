@@ -8,6 +8,7 @@ const bcrypt = require("bcryptjs");
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const userTable = "multistream-users";
 
+// lamdba function that is being called by register when successfully 
 async function register(userInfo) {
   const name = userInfo.name;
   const email = userInfo.email;

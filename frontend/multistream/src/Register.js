@@ -1,35 +1,51 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const registerUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/register";
+// allows us to access the api
+const registerUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/register"
 
+
+// This component should act as a way for the user to use Forms to register an account
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+
+  // removing any previous messages
+  setMessage(null);
+
+  // declaring new state variables 
+  const [name, setName] = useState(""); 
+  const [email, setEmail] = useState(""); 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
 
+  // this function is called when submitting the form
   const submitHandler = (event) => {
+    
+    // cancels the event if it is cancelable 
     event.preventDefault();
+
+    // making sure no fields are empty
     if (username.trim() === "" || email.trim() === "" || name.trim() === "" || password.trim() === "") {
       setMessage("All fields are required");
       return;
     }
 
-    setMessage(null);
-
+    // required for call to server
     const requestConfig = {
       headers: {
         "x-api-key": "1fJBeucWw45uBdz97bK4t3iio2gHgdjIaR3d9Lmy",
       },
-    };
+    }
+
+    // what we want to send (post) to the server 
     const requestBody = {
       username: username,
       email: email,
       name: name,
       password: password,
-    };
+    }
+
+    // we are using axios to send asynchronous HTTP requests to REST endpoints
     axios
       .post(registerUrl, requestBody, requestConfig)
       .then((response) => {
@@ -48,6 +64,7 @@ const Register = () => {
     <div class="center">
 
       <form onSubmit={submitHandler}>
+        
         <h5>Register</h5>
 
         <div class="form">
