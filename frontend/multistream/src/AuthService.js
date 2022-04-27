@@ -1,7 +1,9 @@
+// Contains functions for user information and token
+
 module.exports = {
 
     getUser: function() {
-        const user = sessionStorage.getItem('user');
+        const user = sessionStorage.getItem('user')
 
         if (user === 'undefined' || !user ) {
             return null;
@@ -12,17 +14,17 @@ module.exports = {
     },
 
     getToken: function() {
-        return sessionStorage.getItem('token');
+        return sessionStorage.getItem('token')
     },
 
     setUserSession: function(user, token) {
-        sessionStorage.setItem('user', JSON.stringify(user));
-        sessionStorage.setItem('token', token);
+        sessionStorage.setItem('user', JSON.stringify(user))
+        sessionStorage.setItem('token', token)
     },
 
     resetUserSession: function() {
-        sessionStorage.removeItem('user');
-        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('user')
+        sessionStorage.removeItem('token')
     }
 
 }
