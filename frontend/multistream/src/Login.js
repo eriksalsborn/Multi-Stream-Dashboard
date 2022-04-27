@@ -60,29 +60,28 @@ const Login = () => {
     }
 
     return (
-        <div class="center">
-            <form onSubmit={submitHandler}>
-                <h5>Login</h5>
 
-                <div class="form">
-                    <div>
-                        Username: <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
-                    </div>
+    <div class="center">
+      <form onSubmit={submitHandler}>
+        <h5>Login</h5>
 
-                    <div>
-                        Password: <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
-                    </div>
+        <div class="form">
+          <div>
+            Username: <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
+          </div>
 
-                </div>
+          <div>
+            Password: <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
+          </div>
+        </div>
 
-                <div>
-                    <input type="submit" value="Login" id="submit-button" />
-                </div>
-                
-            </form>
-            {message && <p className="message">{message} </p>}
+        <div>
+          <input type="submit" value="Login" id="submit-button" />
+        </div>
+      </form>
+      {message && <p className="message">{message} </p>}
     </div>
-    )
+  )
 }
 
-export default Login;
+export default Login

@@ -17,7 +17,7 @@ async function savelayouts(requestBody) {
 
   const username = requestBody.username;
 
-  const url = requestBody.url;
+  const url = requestBody.twitchWindows;
   if (!url) {
     return util.buildResponse(401, {
       message: "All fields are required",
@@ -28,6 +28,7 @@ async function savelayouts(requestBody) {
     username: username.toLowerCase().trim(),
     url: url,
   };
+  console.log(user.url);
 
   const saveUserResponse = await saveUser(user);
   if (!saveUserResponse) {
@@ -41,15 +42,10 @@ async function savelayouts(requestBody) {
 async function saveUser(user) {
   const params = {
     TableName: userTable,
-    Key: { username: user.username },
-    UpdateExpression: "SET urlTest = list_append(if_not_exists(urlTest, :empty_list), :my_value)",
-    ExpressionAttributeNames: {
-      "#attrName": "urlTest",
-    },
-    ExpressionAttributeValues: { ":my_value": "test", ":empty_list": "" },
+    Item: user,
   };
   return await dynamoDB
-    .update(params)
+    .put(params)
     .promise()
     .then(
       (response) => {
