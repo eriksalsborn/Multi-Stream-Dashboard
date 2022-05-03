@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getUser, resetUserSession } from "./AuthService";
 import axios from "axios";
 import TwitchStream from "./TwitchStream";
+import { slide as Menu } from 'react-burger-menu'
 
 // allows us to access the api
 const saveLayoutsUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/savelayouts";
@@ -40,7 +41,7 @@ const Layouts = () => {
       axios
         .post(saveLayoutsUrl, { twitchWindows: twitchWindows, username: user.username }, requestConfig)
         .then((response) => {
-          setMessage("Layouts Saved Successfully");
+          //setMessage("Layouts Saved Successfully");
         })
         .catch((error) => {
           if (error.response.status === 401 || error.response.status === 403) {
@@ -67,7 +68,7 @@ const Layouts = () => {
       axios
         .post(getLayoutsUrl, requestBody, requestConfig)
         .then((response) => {
-          setMessage("Layouts Updated Successfully");
+          //setMessage("Layouts Updated Successfully");
           //console.log(response.data);
           setTwitchWindows(response.data.layouts);
           //console.log("Erik");
@@ -155,30 +156,31 @@ const Layouts = () => {
   };
 
   return (
-    <div class="center">
-      Hello {name}! You are currently logged in! Welcome to your layouts. <br />
-      <input type="button" value="Logout" onClick={logoutHandler} />
-      <form onSubmit={submitHandler}>
-        <h5>Save layouts</h5>
+    <div>
 
-        <div class="form">
+      <Menu right noOverlay >
+
+        <h2> Welcome, {user.name} </h2>
+        
+        <form onSubmit={submitHandler}>
+          <input
+            type="text"
+            placeholder="Name of Channel"
+            value={inputText}
+            onChange={(event) => {
+              setInputText(event.target.value);
+            }}
+          />{" "}
+          <br />
           <div>
-            Channel name:{" "}
-            <input
-              type="text"
-              value={inputText}
-              onChange={(event) => {
-                setInputText(event.target.value);
-              }}
-            />{" "}
-            <br />
+            <input type="submit" value="Save" />
           </div>
-        </div>
-
-        <div>
-          <input type="submit" value="Save" />
-        </div>
       </form>
+
+      <input type="button" value="Logout" onClick={logoutHandler} />
+      </Menu>
+
+      
       {twitchWindows.map((twitchWindow) => (
         <TwitchStream data={twitchWindow} onDrag={handleDrag} onResizeSmooth={handleResizeSmooth} onClose={handleClose} onResize={handleResize}></TwitchStream>
       ))}

@@ -59,34 +59,58 @@ const Register = () => {
   };
 
   return (
-    <div class="center">
+
+<div class="split">
+
+<div class="row">
+    
+
+<div class="centertop">
       <form onSubmit={submitHandler}>
         <h5>Register</h5>
 
-        <div class="form">
+        <div>
           <div>
-            name: <input type="text" value={name} onChange={(event) => setName(event.target.value)} /> <br />
+            <input type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} /> <br />
           </div>
 
           <div>
-            email: <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} /> <br />
+            <input type="text" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} /> <br />
           </div>
 
           <div>
-            username: <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
+            <input type="text" placeholder="Username" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
           </div>
 
           <div>
-            password: <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
+            <input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
           </div>
         </div>
 
         <div>
           <input type="submit" value="Register" />
         </div>
+
       </form>
       {message && <p className="message">{message} </p>}
+      
     </div>
+
+    <div class="center">
+
+          <p> Har du redan ett konto? <a data-testid="sign-up-link" href="/login" tabindex="0"><span>Logga in</span></a></p>
+
+    </div>
+
+    </div>
+
+
+</div>
+
+    
+    
+
+    
   )
 }
 

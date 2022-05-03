@@ -61,26 +61,52 @@ const Login = () => {
 
     return (
 
-    <div class="center">
-      <form onSubmit={submitHandler}>
-        <h5>Login</h5>
+    <div class="split">
 
-        <div class="form">
-          <div>
-            Username: <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
-          </div>
+    <div class="centerimage">
 
-          <div>
-            Password: <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
-          </div>
-        </div>
+      <img src="logo192.png" alt="logo"></img>
 
-        <div>
-          <input type="submit" value="Login" id="submit-button" />
-        </div>
-      </form>
-      {message && <p className="message">{message} </p>}
     </div>
+
+      <div class="row">
+
+          <div class="centertop">
+
+            <form onSubmit={submitHandler}>
+                  <h5>Login</h5>
+
+                  <div>
+                    <div>
+                      <input type="text" placeholder="Username" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
+                    </div>
+
+                    <div>
+                      <input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
+                    </div>
+
+                  </div>
+
+                  <div>
+                    <input type="submit" value="Login" id="submit-button" />
+                  </div>
+                </form>
+                {message && <p className="message">{message} </p>}
+                
+            </div>
+
+          <div class="center">
+
+          <p> Har du inget konto? <a data-testid="sign-up-link" href="/register" tabindex="0"><span>Registrera dig</span></a></p>
+
+          </div>
+  
+</div>
+
+      </div>
+     
+    
+    
   )
 }
 
