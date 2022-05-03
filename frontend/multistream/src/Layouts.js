@@ -2,60 +2,57 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUser, resetUserSession } from "./AuthService";
 import axios from "axios";
-import TwitchStream from "./TwitchStream"
+import TwitchStream from "./TwitchStream";
 
 // allows us to access the api
-const layoutsUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/savelayouts";
+const saveLayoutsUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/savelayouts";
+const getLayoutsUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/getlayouts";
 
 const Layouts = () => {
-
   // get the current user + name
-  const user = getUser()
-  const name = user.name
+  const user = getUser();
+  const name = user.name;
 
   // declaring new state variables
-  const [twitchWindows, setTwitchWindows] = useState([])
-  const [inputText, setInputText] = useState("")
-  const [message, setMessage] = useState(null)
-  const [appInitiated, setAppInitiated] = useState(false)
-  
+  const [twitchWindows, setTwitchWindows] = useState([]);
+  const [inputText, setInputText] = useState("");
+  const [message, setMessage] = useState(null);
+  const [appInitiated, setAppInitiated] = useState(false);
+
   // hook that runs after each render / state variables updated
   useEffect(() => {
-
-    // If this isnt our first time doing stuff 
+    // If this isnt our first time doing stuff
     if (appInitiated) {
-    
-    // required for call to server
-    const requestConfig = {
-      headers: {
-        "x-api-key": "1fJBeucWw45uBdz97bK4t3iio2gHgdjIaR3d9Lmy",
-      },
-    }
+      // required for call to server
+      const requestConfig = {
+        headers: {
+          "x-api-key": "1fJBeucWw45uBdz97bK4t3iio2gHgdjIaR3d9Lmy",
+        },
+      };
 
-    // what we want to send (post) to the server lambda function
-    const requestBody = {
-      username: user.username,
-      url: inputText,
-    }
+      // what we want to send (post) to the server lambda function
+      const requestBody = {
+        username: user.username,
+        url: inputText,
+      };
 
-    // server call 
-    axios
-      .post(layoutsUrl, {twitchWindows: twitchWindows, username: user.username}, requestConfig)
-      .then((response) => {
-        setMessage("Layouts Saved Successfully")
-      })
-      .catch((error) => {
-        if (error.response.status === 401 || error.response.status === 403) {
-          setMessage(error.response.data.message)
-        } else {
-          setMessage("Sorry... The backend server is down. Please try again later.")
-        }
-      });
-      
+      // server call
+      axios
+        .post(saveLayoutsUrl, { twitchWindows: twitchWindows, username: user.username }, requestConfig)
+        .then((response) => {
+          setMessage("Layouts Saved Successfully");
+        })
+        .catch((error) => {
+          if (error.response.status === 401 || error.response.status === 403) {
+            setMessage(error.response.data.message);
+          } else {
+            setMessage("Sorry... The backend server is down. Please try again later.");
+          }
+        });
+
       // if we are just navigating to layouts from another component we want to
       // retrieve the states in the database for the user
     } else {
-
       // fetch data
       const requestConfig = {
         headers: {
@@ -64,32 +61,33 @@ const Layouts = () => {
       };
       const requestBody = {
         username: user.username,
-        url: inputText,
+        //url: inputText,
       };
 
       axios
-      .get(layoutsUrl, requestConfig)
-      .then((response) => {
-        setMessage("Layouts Updated Successfully")
-        console.log(response)
-        //console.log(twitchWindows)
-      })
-      .catch((error) => {
-        if (error.response.status === 401 || error.response.status === 403) {
-          setMessage(error.response.data.message);
-        } else {
-          setMessage("Sorry... The backend server is down. Please try again later.");
-        }
-      });
+        .post(getLayoutsUrl, requestBody, requestConfig)
+        .then((response) => {
+          setMessage("Layouts Updated Successfully");
+          console.log(response.data);
+          setTwitchWindows(response.data.layouts);
+          console.log("Erik");
+          //console.log(twitchWindows)
+        })
+        .catch((error) => {
+          if (error.response.status === 401 || error.response.status === 403) {
+            setMessage(error.response.data.message);
+          } else {
+            setMessage("Sorry... The backend server is down. Please try again later.");
+          }
+        });
 
-      setAppInitiated(true)
+      setAppInitiated(true);
     }
-  }, [twitchWindows])
+  }, [twitchWindows]);
 
-  // hook returns a function 
-  let navigate = useNavigate()
+  // hook returns a function
+  let navigate = useNavigate();
   const logoutHandler = () => {
-    
     resetUserSession();
     navigate("/login");
   };
@@ -104,55 +102,73 @@ const Layouts = () => {
     setMessage(null);
 
     const channel_name = inputText;
-    const src = "https://player.twitch.tv/?channel=" + channel_name + "&parent=localhost&muted=true"
+    const src = "https://player.twitch.tv/?channel=" + channel_name + "&parent=localhost&muted=true";
 
-    const newState = [...twitchWindows, {
-      url: src,
-      x: 100,
-      y: 100,
-      scale: 1.0
-    }]
+    const newState = [
+      ...twitchWindows,
+      {
+        url: src,
+        x: 100,
+        y: 100,
+        scale: 1.0,
+      },
+    ];
 
-    console.log(newState)
+    console.log(newState);
 
     setTwitchWindows(newState);
   };
 
   const handleClose = (toClose) => {
-    setTwitchWindows(twitchWindows.filter(a => a.url !== toClose.url))
-  }
+    setTwitchWindows(twitchWindows.filter((a) => a.url !== toClose.url));
+  };
 
   const handleDrag = (toDrag, dx, dy) => {
     // update current state...
 
-    // toDrag.x = dx
-    // toDrag.y = dy
-    // setTwitchWindows(twitchWindows(toDrag))
+    toDrag.x = dx;
+    toDrag.y = dy;
+    setTwitchWindows(twitchWindows.map((a) => (a.url !== toDrag.url ? a : toDrag)));
 
-    console.log('Dragged... ')
-  }
+    console.log("Dragged... ");
+  };
+  const handleResize = (toResize, width, height, position) => {
+    toResize.height = height;
+    toResize.width = width;
+    toResize.x = position.x;
+    toResize.y = position.y;
+
+    setTwitchWindows(twitchWindows.map((a) => (a.url !== toResize.url ? a : toResize)));
+  };
 
   return (
     <div class="center">
-
       Hello {name}! You are currently logged in! Welcome to your layouts. <br />
       <input type="button" value="Logout" onClick={logoutHandler} />
       <form onSubmit={submitHandler}>
-
         <h5>Save layouts</h5>
 
         <div class="form">
           <div>
-            Channel name: <input type="text" value={inputText} onChange={(event) => { setInputText(event.target.value) }  } /> <br />
+            Channel name:{" "}
+            <input
+              type="text"
+              value={inputText}
+              onChange={(event) => {
+                setInputText(event.target.value);
+              }}
+            />{" "}
+            <br />
           </div>
         </div>
 
         <div>
           <input type="submit" value="Save" />
         </div>
-
       </form>
-      {twitchWindows.map(twitchWindow => <TwitchStream data={twitchWindow} onDrag={handleDrag} onClose={handleClose}></TwitchStream>)}
+      {twitchWindows.map((twitchWindow) => (
+        <TwitchStream data={twitchWindow} onDrag={handleDrag} onClose={handleClose} onResize={handleResize}></TwitchStream>
+      ))}
       {message && <p className="message">{message} </p>}
     </div>
   );
