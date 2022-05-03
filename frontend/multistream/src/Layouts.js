@@ -108,6 +108,8 @@ const Layouts = () => {
       ...twitchWindows,
       {
         url: src,
+        width: 407,
+        height: 228,
         x: 100,
         y: 100,
         scale: 1.0,
@@ -130,8 +132,19 @@ const Layouts = () => {
     toDrag.y = dy;
     setTwitchWindows(twitchWindows.map((a) => (a.url !== toDrag.url ? a : toDrag)));
 
-    console.log("Dragged... ");
+    console.log(toDrag);
   };
+
+  const handleResizeSmooth = (toResize, width, height, position) => {
+    // update current state...
+
+    toResize.height = height;
+    toResize.width = width;
+    toResize.x = position.x;
+    toResize.y = position.y;
+
+  };
+
   const handleResize = (toResize, width, height, position) => {
     toResize.height = height;
     toResize.width = width;
@@ -167,7 +180,7 @@ const Layouts = () => {
         </div>
       </form>
       {twitchWindows.map((twitchWindow) => (
-        <TwitchStream data={twitchWindow} onDrag={handleDrag} onClose={handleClose} onResize={handleResize}></TwitchStream>
+        <TwitchStream data={twitchWindow} onDrag={handleDrag} onResizeSmooth={handleResizeSmooth} onClose={handleClose} onResize={handleResize}></TwitchStream>
       ))}
       {message && <p className="message">{message} </p>}
     </div>
