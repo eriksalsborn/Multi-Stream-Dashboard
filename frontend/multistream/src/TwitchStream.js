@@ -13,7 +13,7 @@ const TwitchStream = ({ data, onDrag, onClose, onResize }) => {
           onResize(data, ref.style.width, ref.style.height, position);
         }}
       >
-        <iframe className="TwitchPlayer" src={data.url} width={data.width} height={data.height} frameborder="0" scrolling="no"></iframe>'
+        <iframe className="TwitchPlayer" src={data.url} width={data.width} height={data.height} frameBorder="0" scrolling="no"></iframe>'
         <button onClick={() => onClose(data)}>Close</button>
       </Rnd>
     </>

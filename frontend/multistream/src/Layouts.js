@@ -68,9 +68,9 @@ const Layouts = () => {
         .post(getLayoutsUrl, requestBody, requestConfig)
         .then((response) => {
           setMessage("Layouts Updated Successfully");
-          console.log(response.data);
+          //console.log(response.data);
           setTwitchWindows(response.data.layouts);
-          console.log("Erik");
+          //console.log("Erik");
           //console.log(twitchWindows)
         })
         .catch((error) => {
@@ -130,7 +130,7 @@ const Layouts = () => {
     toDrag.y = dy;
     setTwitchWindows(twitchWindows.map((a) => (a.url !== toDrag.url ? a : toDrag)));
 
-    console.log("Dragged... ");
+    //console.log("Dragged... ");
   };
   const handleResize = (toResize, width, height, position) => {
     toResize.height = height;
