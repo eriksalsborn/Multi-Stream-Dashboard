@@ -10,24 +10,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="header">
-          <NavLink activeclassname="active" to="/">
-            {" "}
-            Home
-          </NavLink>
-          <NavLink activeclassname="active" to="/register">
-            {" "}
-            Register
-          </NavLink>
-          <NavLink activeclassname="active" to="/login">
-            {" "}
-            Login
-          </NavLink>
-          <NavLink activeclassname="active" to="/layouts">
-            {" "}
-            Layouts
-          </NavLink>
-        </div>
 
         <div className="content">
           <Routes>
