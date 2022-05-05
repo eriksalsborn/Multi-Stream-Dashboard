@@ -6,15 +6,15 @@ const registerUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/pro
 
 // This component should act as a way for the user to use Forms to register an account
 const Register = () => {
+
+    document.body.style.backgroundColor = "white"
+  
     // declaring new state variables
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState(null);
-
-    // removing any previous messages
-    //setMessage(null);
 
     // this function is called when submitting the form
     const submitHandler = (event) => {
@@ -61,47 +61,56 @@ const Register = () => {
 
 <div class="split">
 
-<div class="row">
-    
+<div class="centerimage">
 
-<div class="centertop">
-      <form onSubmit={submitHandler}>
-        <h5>Register</h5>
+  <img src="logo192.png" alt="logo"></img>
 
-        <div>
-          <div>
-            <input type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} /> <br />
-          </div>
+</div>
 
-          <div>
-            <input type="text" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} /> <br />
-          </div>
+  <div class="row">
 
-          <div>
-            <input type="text" placeholder="Username" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
-          </div>
+      <div class="centertop">
 
-          <div>
-            <input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
-          </div>
-        </div>
+        <form onSubmit={submitHandler}>
+              <h5>Register</h5>
+
+              <div>
 
                 <div>
-                    <input type="submit" value="Register" />
+                  <input type="text" placeholder="Name" value={name} onChange={(event) => setUsername(event.target.value)} /> <br />
                 </div>
+                
+                <div>
+                  <input type="text" placeholder="Username" value={username} onChange={(event) => setUsername(event.target.value)} /> <br />
+                </div>
+
+                <div>
+                  <input type="text" placeholder="Email" value={email} onChange={(event) => setUsername(event.target.value)} /> <br />
+                </div>
+
+                <div>
+                  <input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} /> <br />
+                </div>
+
+              </div>
+
+              <div>
+                <input type="submit" value="Login" id="submit-button" />
+              </div>
             </form>
             {message && <p className="message">{message} </p>}
-        </div>
-      
-    </div>
+            
+      </div>
 
-    <div class="center">
+      <div class="center">
 
-          <p> Har du redan ett konto? <a data-testid="sign-up-link" href="/login" tabindex="0"><span>Logga in</span></a></p>
+      <p> Har du redan ett konto? <a data-testid="sign-up-link" href="/login" tabindex="0"><span>Logga in</span></a></p>
 
-    </div>
+      </div>
 
-    </div>
+</div>
+
+</div>
 
     
   )

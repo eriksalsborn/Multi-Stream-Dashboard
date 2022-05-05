@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #fafafa;
+  background-color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -8,8 +8,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-
 
 .App-link {
   color: #61dafb;
@@ -42,7 +40,7 @@
   background-color: white;
   margin-top: 100px;
   width: 100%;
-}
+} 
 
 .centerimage {
   display: flex;
@@ -65,6 +63,31 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+#border { 
+  margin-top: 20px;
+}
+
+#border_bottom { 
+  margin-bottom: 60px;
+}
+
+#darkmode { 
+  margin-top: 20px;
+}
+
+#border-bottom { 
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+#logout_button { 
+  margin-top: 200px;
+}
+
+#white_text { 
+  color: white;
 }
 
 /* input[type=submit] {

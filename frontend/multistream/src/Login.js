@@ -8,6 +8,9 @@ const loginUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/prod/l
 
 // this component acts as a way for the user to login via Forms
 const Login = () => {
+
+    document.body.style.backgroundColor = "white"
+
     // declaring new state variables
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -91,7 +94,7 @@ const Login = () => {
                 </form>
                 {message && <p className="message">{message} </p>}
                 
-            </div>
+          </div>
 
           <div class="center">
 
