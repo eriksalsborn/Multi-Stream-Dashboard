@@ -10,22 +10,20 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-
-                <div className="content">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-
-                        <Route element={<PrivateRoute />}>
-                            <Route path="/layouts" element={<Layouts />} />
-                            {/* add here if you want multiple privates */}
-                        </Route>
-                    </Routes>
-                </div>
-            </BrowserRouter>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/layouts" element={<Layouts />} />
+              {/* add here if you want multiple privates */}
+            </Route>
+          </Routes>
         </div>
-    );
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

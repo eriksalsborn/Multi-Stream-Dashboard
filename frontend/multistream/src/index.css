@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #fafafa; */
-  background-color: white;
+  background-color: #D2D6E6;
 }
 
 code {
@@ -24,6 +24,7 @@ code {
   margin: 0 1em 0 1em 0;
   font-size: 1.2em;
   text-decoration: none;
+
 }
 
 .content {
