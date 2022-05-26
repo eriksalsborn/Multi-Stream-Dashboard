@@ -1,9 +1,9 @@
-import { useLocation, Navigate, Outlet } from "react-router-dom";
-import { getToken } from "./AuthService";
+import { useLocation, Navigate, Outlet } from "react-router-dom"
+import { getToken } from "./AuthService"
 
 const PrivateRoute = () => {
-    let token = getToken();
-    let location = useLocation();
+    let token = getToken()
+    let location = useLocation()
 
     if (!token) {
         // Redirect them to the /login page, but save the current location they were
@@ -11,10 +11,10 @@ const PrivateRoute = () => {
         // along to that page after they login, which is a nicer user experience
         // than dropping them off on the home page.
 
-        return <Navigate to="/login" state={{ from: location }} />;
+        return <Navigate to="/login" state={{ from: location }} />
     }
 
-    return <Outlet />;
-};
+    return <Outlet />
+}
 
-export default PrivateRoute;
+export default PrivateRoute
