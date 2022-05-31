@@ -6,7 +6,7 @@ function buildResponse(statusCode, body) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(body),
-    };
+    }
 }
 
 function buildCORSResponse(statusCode, body) {
@@ -20,8 +20,8 @@ function buildCORSResponse(statusCode, body) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(body),
-    };
+    }
 }
 
-module.exports.buildResponse = buildResponse;
-module.exports.buildCORSResponse = buildCORSResponse;
+module.exports.buildResponse = buildResponse
+module.exports.buildCORSResponse = buildCORSResponse
