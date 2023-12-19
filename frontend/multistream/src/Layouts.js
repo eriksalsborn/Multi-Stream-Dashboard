@@ -11,9 +11,9 @@ const getLayoutsUrl = "https://hie7efmkul.execute-api.eu-north-1.amazonaws.com/p
 
 const Layouts = () => {
     // get the current user + name + token
-    const user = getUser()
-    const name = user.name
-    const token = getToken()
+    //const user = getUser()
+    //const name = user.name
+    //const token = getToken()
 
     // declaring new state variables
     const [windows, setWindows] = useState([]) // windows contains information about each streaming window - url, size etc..
@@ -24,8 +24,12 @@ const Layouts = () => {
     const [darkmode, setDarkmode] = useState(false) // used for keeping track if we are using dark mode or not
 
     // hook that runs after each render / when state variable window is updated
+
+    /*
+
     useEffect(() => {
         // If - appInitiated is true (meaning we have are already on the component)- then we want to update SAVE windows to the database
+        
         if (appInitiated) {
             // required for call to server
             const requestConfig = {
@@ -94,6 +98,8 @@ const Layouts = () => {
             setAppInitiated(true)
         }
     }, [windows])
+
+    */
 
     let navigate = useNavigate()
     const logoutHandler = () => {
@@ -280,7 +286,7 @@ const Layouts = () => {
     return (
         <div>
             <Menu right noOverlay>
-                <h5> Welcome, {user.name} </h5>
+                <h5> Welcome </h5>
                 <h5> Add a stream </h5>
 
                 <div id="border">

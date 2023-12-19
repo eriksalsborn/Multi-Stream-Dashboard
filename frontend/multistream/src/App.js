@@ -16,10 +16,8 @@ function App() {
                         <Route path="/" element={<Login />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
-                        <Route element={<PrivateRoute />}>
-                            <Route path="/layouts" element={<Layouts />} />
-                            {/* add here if you want multiple privates */}
-                        </Route>
+                        <Route path="/layouts" element={<Layouts />} />
+                       
                     </Routes>
                 </div>
             </BrowserRouter>
