@@ -1,7 +1,9 @@
-# React Layouts App Readme
+# Multi-Stream-Dashboard
 
 ## Overview
 This is a React application that allows users to create and manage windows displaying Twitch and YouTube content. Users can add Twitch channels and YouTube videos to the layout, resize and drag the windows, and switch between dark and light modes.
+
+![Demo of multistream](demo.png)
 
 ## Technologies Used
 - React
@@ -14,17 +16,17 @@ This is a React application that allows users to create and manage windows displ
    git clone git@github.com:eriksalsborn/Multi-Stream-Dashboard.git
 
 2. Navigate to the repository
-  ```bash
-   cd multi-stream
-  ```
+```bash
+cd multi-stream
+```
 3. Install dependencies.
-  ```bash
-   npm install
-  ```
+```bash
+npm install
+```
 4. Start the development server.
-  ```bash
-   npm start
-  ```
+```bash
+npm start
+```
 *Voila! Open your browser and visit http://localhost:3000 to view the app*
 
 ## Features
