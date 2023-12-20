@@ -1,0 +1,225 @@
+.App {
+  text-align: center;
+  background-color: #d2d6e6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#form_tw {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border: 10px solid #27254f;
+  border-radius: 10px;
+  background-color: #27254f;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#form_yt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border: 20px solid #600505; /* Add border style, width, and color */
+  border-radius: 10px;
+  background-color: #600505;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+input[type="submit"] {
+  border-radius: 4px;
+  color: #fff;
+  border: 1px solid transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 9px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #0095f6;
+  color: white;
+  height: 30px;
+  width: 180px;
+  font: bold15px arial, sans-serif;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+input[type="button"] {
+  border-radius: 4px;
+  color: #fff;
+  border: 1px solid transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 9px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #0095f6;
+  color: white;
+  height: 30px;
+  width: 180px;
+  font: bold15px arial, sans-serif;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+#window {
+  background-color: rgb(0, 61, 82);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"],
+select {
+  padding: 12px;
+  width: 100%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* ***** Hamburger menu ***** */
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 36px;
+}
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+.bm-burger-bars-hover {
+  background: #ffffff;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.bm-menu {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+.bm-item {
+  display: inline-block;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.5); 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+  z-index: 1000;
+}
+#bm-text {
+  color: rgb(236, 235, 235);
+}
+
+/* ***** Buttons ***** */
+
+#window > button {
+  float: right;
+  transition: 0.08s;
+  background-color: rgb(78, 0, 0);
+  opacity: 0.5;
+  color: white;
+  border-style: solid;
+  border: rgb(78, 0, 0);
+}
+
+#window > button:hover {
+  background-color: rgb(192, 1, 1);
+  opacity: 1;
+  cursor: pointer;
+}
+
+#darkmode_button {
+  margin: 0px;
+  width: auto;
+  height: auto;
+  background-color: #3d3e42;
+  color: #302a2a; 
+}
+
+#darkmode_button:hover {
+  background-color: #121c45;
+  color: rgb(255, 255, 255);
+}
+
+#button-overlay-green {
+  margin: 0px;
+  width: 100%;
+  background: green;
+}
+
+#button-overlay-green:disabled {
+  margin: 0px;
+  width: 100%;
+  background: rgb(62, 62, 62);
+  color: #646464;
+}
+
+/* ***** Lib ***** */
+
+p {
+  font-size: 14px;
+  margin: 15px;
+}
+
+a {
+  font-size: 14px;
+  color: #0095f6;
+  text-decoration: none;
+}
+
+a,
+a:visited {
+  color: #00376b;
+  text-decoration: none;
+}
