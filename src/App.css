@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
-  border: 10px solid #27254f;
+  border: 15px solid #27254f;
   border-radius: 10px;
   background-color: #27254f;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
-  border: 20px solid #600505; /* Add border style, width, and color */
+  border: 15px solid #600505; /* Add border style, width, and color */
   border-radius: 10px;
   background-color: #600505;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
