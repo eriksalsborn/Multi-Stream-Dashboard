@@ -9,7 +9,7 @@
     "react-dom": "^18.0.0",
     "react-rnd": "^10.3.7",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.0"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start --public-url=/Multi-Stream-Dashboard/",
@@ -33,6 +33,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.0"
+    "gh-pages": "^6.1.1"
   }
 }
