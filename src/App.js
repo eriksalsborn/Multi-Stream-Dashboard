@@ -8,7 +8,7 @@ function App() {
             <BrowserRouter>
                 <div className="content">
                     <Routes>
-                        <Route path="/" element={<Layouts />} />
+                        <Route path="/Multi-Stream-Dashboard" element={<Layouts />} />
                     </Routes>
                 </div>
             </BrowserRouter>

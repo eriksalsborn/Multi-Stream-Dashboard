@@ -108,7 +108,7 @@ const Layouts = () => {
                 <h5 id="bm-text"> Enjoy that game...</h5>
 
                 <div id="form_tw">
-                    <img src="twitch_logo.png" height="78"/>
+                    <img src="Multi-Stream-Dashboard/twitch_logo.png" height="78"/>
                     <form onSubmit={submitHandlerTW}>
                         <input
                             id="forminput"
@@ -132,7 +132,7 @@ const Layouts = () => {
                 <h5 id="bm-text"> Watch that cat video... </h5>
 
                 <div id="form_yt">
-                    <img src="youtube_logo.png" height="78" />
+                    <img src="Multi-Stream-Dashboard/youtube_logo.png" height="78" />
                     <form onSubmit={submitHandlerYT}>
                         <input
                             id="forminput"
